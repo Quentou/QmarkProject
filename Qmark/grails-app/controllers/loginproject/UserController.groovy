@@ -2,25 +2,27 @@ package loginproject
 
 class UserController {
 
-    def indexuser() { }
+	def indexuser() { }
 	def login ={
-		if(params.username == "admin" && params.password == "pass"){
-			flash.message = "login succed"
-			session.user = "admin"
-			redirect(action:'indexuser')
+
+		//si un User a le bon userName et password, ça marche
+		for(int i=1;i<=User.count();i++){
+			if(params.username == User.get(i).getProperty("firstName") && params.password == User.get(i).getProperty("password")){
+				flash.message = "login succed"
+				session.user = "admin"
+				redirect(action:'indexuser')
+			}
 		}
-		else{
-			render "login failed"
-			
-		}
-		
-		
+		//sinon ça marche pas
+		render "login failed"
+
+
 	}
-	
+
 	def logout ={
 		session.user = null
 		redirect(action: '../')
-		
-		
+
+
 	}
 }
