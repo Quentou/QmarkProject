@@ -94,5 +94,33 @@ ${flash.message}
 	</div>
 
 	</g:form>
+	
+	</br>
+	
+	<g:form action="create" controller="Student" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>&nbsp;</label>
+		<input type="submit" value="create Student"/>
+	</div>
+	</g:form>
+	</br>
+	
+	<g:form action="create" controller="Teacher" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>&nbsp;</label>
+		<input type="submit" value="create Teacher"/>
+	</div>
+	
+
+	
+
+	</g:form>
+	
+	
+	
+	
+	
 </body>
 </html>
