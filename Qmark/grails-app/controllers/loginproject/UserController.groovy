@@ -3,15 +3,25 @@ package loginproject
 class UserController {
 	def scaffold = User
 	def indexuser() { }
-	def indexstudent() { }
-	def indexteacher() { }
+	def indexstudent() { 
+		
+		def userInstance = User.get(params.id)
+		
+		[userInstance:userInstance]
+		
+	}
+	def indexteacher() {
+		
+		
+		
+		
+		
+	}
 	
 	def login ={
+		
 
-
-
-
-
+		
 
 		//si un User a le bon userName et password, ça marche
 		for(int i=1;i<=User.count();i++){
@@ -19,11 +29,13 @@ class UserController {
 				flash.message = "login succed"
 				if(User.get(i).getClass().toString()=="class loginproject.Student"){
 					session.user = "Student"
-					redirect(action:'indexstudent')
+					params.id=User.get(i).getProperty("id")
+					redirect(action:'indexstudent',params: params)
 				}
 				else if(User.get(i).getClass().toString()=="class loginproject.Teacher"){
 					session.user = "Teacher"
-					redirect(action:'indexteacher')
+					params.id=User.get(i).getProperty("id")
+					redirect(action:'indexteacher',params: params)
 				}
 				else{
 					session.user = "user"
