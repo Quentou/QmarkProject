@@ -65,6 +65,7 @@ class BootStrap {
 			
 			println Student.get(i).getProperties();
 		}
+		println stu1.getProperty("id")
 		
 		
 		

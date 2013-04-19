@@ -5,5 +5,4 @@ class StudentController {
     def scaffold = Student
 	
 	
-	
 }

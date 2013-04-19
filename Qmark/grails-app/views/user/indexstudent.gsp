@@ -1,3 +1,6 @@
+<%@ page import= "loginproject.Student" %>
+
+<%@ page import= "loginproject.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,10 +94,26 @@ login as: ${session.user} | <g:link action="logout">Logout</g:link>
 
 
 
+
 <g:else>
 
 
 </g:else>
+<br/>
+
+
+<br/>
+
+${userInstance?.firstName}
+
+${userInstance?.lastName}
+
+${userInstance?.email}
+
+
+${userInstance?.password}
+
+
 
 
 	
