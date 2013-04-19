@@ -84,6 +84,33 @@ p {
 ${flash.message}
 </div>
 
+
+${userInstance?.firstName}
+
+${userInstance?.lastName}
+
+${userInstance?.email}
+
+${userInstance?.password}
+
+${userInstance?.stugroups }
+
+
+<g:form action="ajouterGroup" id="${userInstance?.id}" controller="Teacher" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>Nom du group:</label>
+		<input type="text" name="groupName"/> 
+		<label>&nbsp;</label>
+		<input type="submit" value="AjouterGroup"/>
+		
+	</div>
+
+</g:form>
+
+
+
+
 <g:if test="${session.user}">
 <br/>
 login as: ${session.user} | <g:link action="logout">Logout</g:link>

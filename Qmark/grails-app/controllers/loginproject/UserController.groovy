@@ -12,7 +12,9 @@ class UserController {
 	}
 	def indexteacher() {
 		
+		def userInstance = User.get(params.id)
 		
+		[userInstance:userInstance]
 		
 		
 		

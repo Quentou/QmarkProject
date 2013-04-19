@@ -7,4 +7,7 @@ class Teacher extends User {
     static constraints = {
 		stugroups (nullable:true)
     }
+	
+	
+	
 }

@@ -6,6 +6,10 @@ class Question {
 	String question
 	String type
 	
+	String toString(){
+		return question
+	}
+	
     static constraints = {
     }
 }

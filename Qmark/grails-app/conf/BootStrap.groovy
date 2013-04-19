@@ -12,10 +12,10 @@ class BootStrap {
 		
 		User u1 = new User(firstName:"Quentin",lastName:"LeBoGoss",email:"Quentinou@hotmail.fr",password:"groscacamou")
 		User u2 = new User(firstName:"Jack",lastName:"Danny",email:"JackDanny@hotmail.fr",password:"petitcaca")
-		Teacher u3 = new Teacher(firstName:"Albert",lastName:"Einstein",email:"Einstein@cern.fr",password:"e=mc2")
+		Teacher t1 = new Teacher(firstName:"Albert",lastName:"Einstein",email:"Einstein@cern.fr",password:"e=mc2")
 		Stugroup u4 = new Stugroup(nom:"2.1")
 		Question q1 = new Question(id:1,group:u4, question:"Quelle est la taille de mon p ... ?", type:"simple");
-		
+		Stugroup stg2 = new Stugroup(nom:"3.2")
 		
 		if(!u1.save()){
 			u1.errors.allErrors.each {e->println e}
@@ -24,19 +24,26 @@ class BootStrap {
 		if(!u2.save()){
 			u2.errors.allErrors.each {e->println e}
 		}
-		if(!u3.save()){
-			u3.errors.allErrors.each {e->println e}
+		if(!t1.save()){
+			t1.errors.allErrors.each {e->println e}
 		}
 		if(!u4.save()){
 			u4.errors.allErrors.each {e->println e}
 		}
+		if(!stg2.save()){
+			stg2.errors.allErrors.each {e->println e}
+		}
+		
 		
 		if(!q1.save()){
 			q1.errors.allErrors.each {e->println e}
 		}
 		
-		
-		
+		t1.addToStugroups(u4)
+//		t1.addToStugroups(stg2)
+		if(!t1.save()){
+			t1.errors.allErrors.each {e->println e}
+		}
 	
 		/*println u1.getProperty("id")
 		println u1.getProperty("firstName")
