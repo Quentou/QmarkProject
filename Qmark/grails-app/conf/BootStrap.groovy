@@ -10,9 +10,9 @@ class BootStrap {
     def init = { servletContext ->
 		
 		
-		User u1 = new User(id:7,firstName:"Quentin",lastName:"LeBoGoss",email:"Quentinou@hotmail.fr",password:"groscacamou")
-		User u2 = new User(id:3,firstName:"Jack",lastName:"Danny",email:"JackDanny@hotmail.fr",password:"petitcaca")
-		Teacher u3 = new Teacher(id:3,firstName:"Albert",lastName:"Einstein",email:"Einstein@cern.fr",password:"e=mc2")
+		User u1 = new User(firstName:"Quentin",lastName:"LeBoGoss",email:"Quentinou@hotmail.fr",password:"groscacamou")
+		User u2 = new User(firstName:"Jack",lastName:"Danny",email:"JackDanny@hotmail.fr",password:"petitcaca")
+		Teacher u3 = new Teacher(firstName:"Albert",lastName:"Einstein",email:"Einstein@cern.fr",password:"e=mc2")
 		Stugroup u4 = new Stugroup(nom:"2.1")
 		Question q1 = new Question(id:1,group:u4, question:"Quelle est la taille de mon p ... ?", type:"simple");
 		
