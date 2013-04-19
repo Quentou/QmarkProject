@@ -27,4 +27,29 @@ class TeacherController {
 		
 	}
 	
+	def ajouterQuestion ={
+		
+		Question questionIstance = new Question(question: params.question)
+		if(!questionIstance.save()){
+			questionIstance.errors.allErrors.each {e->println e}
+		}
+		for(int i=1;i<=Stugroup.count();i++){
+			if(params.groupName == Stugroup.get(i).getProperty("nom")){
+				
+				Stugroup.get(i).addToQuestions(questionIstance)
+				if(!Stugroup.get(i).save()){
+					Stugroup.get(i).errors.allErrors.each {e->println e}
+				}
+				[params : params]
+				redirect(action: '../user/indexteacher',params:params)
+			}
+		}
+		render "groupe inexistant"
+		
+		
+		
+		
+		
+	}
+	
 }

@@ -11,5 +11,9 @@ class Question {
 	}
 	
     static constraints = {
+		group (nullable:true)
+		type (nullable:true)
+		
+		
     }
 }

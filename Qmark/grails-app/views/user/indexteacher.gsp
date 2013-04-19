@@ -108,6 +108,20 @@ ${userInstance?.stugroups }
 
 </g:form>
 
+<g:form action="ajouterQuestion" controller="Teacher" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>Nom du groupe:</label>
+		<input type="text" name="groupName"/> 
+		<label>Question:</label>
+		<input type="text" name="question"/> 
+		<label>&nbsp;</label>
+		<input type="submit" value="Ajouter la Question à un groupe"/>
+		
+	</div>
+
+</g:form>
+
 
 
 
