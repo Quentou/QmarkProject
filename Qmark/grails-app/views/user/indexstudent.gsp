@@ -110,10 +110,7 @@ ${userInstance?.lastName}
 
 ${userInstance?.email}
 
-
 ${userInstance?.password}
-
-
 
 
 	
