@@ -2,7 +2,7 @@ package loginproject
 
 
 class Student extends User {
-	
+	Stugroup group;
 	
 	
 	def repondrequestion(){
@@ -14,4 +14,5 @@ class Student extends User {
 		
     static constraints = {
     }
+
 }

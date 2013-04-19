@@ -1,4 +1,7 @@
+import loginproject.Question
 import loginproject.Student
+import loginproject.Stugroup
+import loginproject.Teacher
 import loginproject.User
 import loginproject.UserController;
 
@@ -9,6 +12,9 @@ class BootStrap {
 		
 		User u1 = new User(id:7,firstName:"Quentin",lastName:"LeBoGoss",email:"Quentinou@hotmail.fr",password:"groscacamou")
 		User u2 = new User(id:3,firstName:"Jack",lastName:"Danny",email:"JackDanny@hotmail.fr",password:"petitcaca")
+		Teacher u3 = new Teacher(id:3,firstName:"Albert",lastName:"Einstein",email:"Einstein@cern.fr",password:"e=mc2")
+		Stugroup u4 = new Stugroup(nom:"2.1")
+		Question q1 = new Question(id:1,group:u4, question:"Quelle est la taille de mon p ... ?", type:"simple");
 		
 		
 		if(!u1.save()){
@@ -17,6 +23,16 @@ class BootStrap {
 		
 		if(!u2.save()){
 			u2.errors.allErrors.each {e->println e}
+		}
+		if(!u3.save()){
+			u3.errors.allErrors.each {e->println e}
+		}
+		if(!u4.save()){
+			u4.errors.allErrors.each {e->println e}
+		}
+		
+		if(!q1.save()){
+			q1.errors.allErrors.each {e->println e}
 		}
 		
 		
@@ -32,8 +48,8 @@ class BootStrap {
 			
 		}
 		
-		Student stu1 = new Student(firstName:"Tom",lastName:"Sawyer",email:"TomSawyer@hotmail.fr",password:"Tomy")
-		Student stu2 = new Student(firstName:"Bob",lastName:"Lebricolo",email:"bob@hotmail.fr",password:"Boby")
+		Student stu1 = new Student(firstName:"Tom",lastName:"Sawyer",email:"TomSawyer@hotmail.fr",password:"Tomy",group:u4)
+		Student stu2 = new Student(firstName:"Bob",lastName:"Lebricolo",email:"bob@hotmail.fr",password:"Boby", group:u4)
 		
 		if(!stu1.save()){
 			stu1.errors.allErrors.each {e->println e}

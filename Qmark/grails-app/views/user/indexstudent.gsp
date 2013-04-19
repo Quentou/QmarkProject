@@ -112,6 +112,9 @@ ${userInstance?.email}
 
 ${userInstance?.password}
 
+${userInstance?.group.nom }
+
+${userInstance?.group.questions.question}
 
 	
 </body>

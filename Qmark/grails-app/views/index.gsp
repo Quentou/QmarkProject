@@ -118,6 +118,19 @@ ${flash.message}
 
 	</g:form>
 	
+	</br>
+	
+	<g:form action="create" controller="Stugroup" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>&nbsp;</label>
+		<input type="submit" value="create Stugroup"/>
+	</div>
+	
+
+	
+
+	</g:form>
 	
 	
 	
