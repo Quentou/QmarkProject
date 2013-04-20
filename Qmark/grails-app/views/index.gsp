@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="layout" content="main" />
-<title>Login</title>
-<style type="text/css" media="screen">
+<%--<meta name="layout" content="main" /> --%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login Form</title>
+
+<!--STYLESHEETS-->
+<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'style.css')}" />
+
+<!--SCRIPTS-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<!--Slider-in icons-->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".username").focus(function() {
+		$(".user-icon").css("left","-48px");
+	});
+	$(".username").blur(function() {
+		$(".user-icon").css("left","0px");
+	});
+	
+	$(".password").focus(function() {
+		$(".pass-icon").css("left","-48px");
+	});
+	$(".password").blur(function() {
+		$(".pass-icon").css("left","0px");
+	});
+});
+</script>
+<%-- <style type="text/css" media="screen">
 #status {
 	background-color: #eee;
 	border: .2em solid #fff;
@@ -77,10 +102,14 @@ p {
 		margin-top: 0;
 	}
 }
+/*<g:resource dir="css" file="style.css" absolute="true" />*/
 </style>
+
+
+--%>
 </head>
 <body>
-
+<%--
 ${flash.message}
 	<g:form action="login" controller="user" style="padding-left:200px">
 	
@@ -151,6 +180,95 @@ ${flash.message}
 	</g:form>
 	
 	
+	--%>
+	<!--WRAPPER-->
+<div id="wrapper">
+
+	<!--SLIDE-IN ICONS-->
+    <div class="user-icon"></div>
+    <div class="pass-icon"></div>
+    <!--END SLIDE-IN ICONS-->
+
+<!--LOGIN FORM-->
+<g:form name ="login-form" class="login-form" controller="User" action="login">
+
+
+
+	<!--HEADER-->
+    <div class="header">
+        <div id="app-logo">
+            <img src="${resource(dir: 'images', file: 'app-logo-square.png')}" alt="QMARK" width="72" height="72"/>
+        </div>
+    </div>
+    <!--END HEADER-->
+	
+	<!--CONTENT-->
+    <div class="content">
+	<!--USERNAME--><input name="username" type="text" class="input username" value="Username" onfocus="this.value=''" /><!--END USERNAME-->
+    <!--PASSWORD--><input name="password" type="password" class="input password" value="Password" onfocus="this.value=''" /><!--END PASSWORD-->
+    </div>
+    <!--END CONTENT-->
+    
+    <!--FOOTER-->
+    <div class="footer">
+    <!--LOGIN BUTTON--><input type="submit" name="submit" value="login" class="button" /><!--END LOGIN BUTTON-->
+    </div>
+    <!--END FOOTER-->
+
+</g:form>
+<!--END LOGIN FORM-->
+
+</div>
+<!--END WRAPPER-->
+<g:form action="create" controller="Student" style="padding-left:200px">
+	
+	<div class="buttonsplus">
+		<label>&nbsp;</label>
+		<input type="submit" value="create Student" class="button"/>
+	</div>
+	</g:form>
+	</br>
+	
+	<g:form action="create" controller="Teacher" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>&nbsp;</label>
+		<input type="submit" value="create Teacher" class="button"/>
+	</div>
+	
+
+	
+
+	</g:form>
+	
+	</br>
+	
+	<g:form action="create" controller="Stugroup" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>&nbsp;</label>
+		<input type="submit" value="create Stugroup" class="button"/>
+	</div>
+	
+
+	
+
+	</g:form>
+	
+		</br>
+	
+	<g:form action="create" controller="Question" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>&nbsp;</label>
+		<input type="submit" value="create Question" class="button"/>
+	</div>
+	
+
+	
+
+	</g:form>
+<!--GRADIENT--><div class="gradient"></div><!--END GRADIENT-->
 	
 	
 </body>
