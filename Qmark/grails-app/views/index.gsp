@@ -132,6 +132,19 @@ ${flash.message}
 
 	</g:form>
 	
+		</br>
+	
+	<g:form action="create" controller="Question" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>&nbsp;</label>
+		<input type="submit" value="create Question"/>
+	</div>
+	
+
+	
+
+	</g:form>
 	
 	
 	

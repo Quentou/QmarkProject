@@ -12,6 +12,17 @@ class User {
 		id + ":" + " " + firstName + " " + lastName
 	}
 	
+	def voiranciennesrep(student){
+		 def rep = Answer.findByStudent(student)
+		 if (!rep){
+			 "Pas de réponses"
+		 }
+		 else {
+		rep.toString()
+		 }
+		 
+	}
+	
     static constraints = {
 		id blank: false, unique:true
 		firstName blank: false

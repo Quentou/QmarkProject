@@ -58,4 +58,8 @@ class UserController {
 
 
 	}
+	
+		def latestsNews = {
+		    println "in controller"
+		}
 }

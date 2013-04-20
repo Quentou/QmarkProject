@@ -1,5 +1,8 @@
 <%@ page import= "loginproject.Student" %>
-
+<%@ page import="loginproject.Answer" %>
+<%
+    def answer  = grailsApplication.classLoader.loadClass('loginproject.Answer').newInstance()
+%>
 <%@ page import= "loginproject.User" %>
 <!DOCTYPE html>
 <html>
@@ -114,13 +117,18 @@ ${userInstance?.password}
 
 ${userInstance?.group.nom }
 
-${userInstance?.group.questions.question}
+<g:each in="${userInstance?.group.questions.question}">
+	<p>${userInstance?.group.questions.question[0]}</p>
+    <p>${userInstance?.voiranciennesrep(userInstance)}</p>
+</g:each>
 
-<g:form action="create" controller="Stugroup" style="padding-left:200px">
+
+
+<g:form action="create" controller="Answer" style="padding-left:200px">
 	
 	<div style="width: 220px">
 		<label>&nbsp;</label>
-		<input type="submit" value="create Stugroup"/>
+		<input type="submit" value="create Answer"/>
 	</div>
 	
 </g:form>
