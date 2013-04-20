@@ -27,4 +27,15 @@ class StudentController {
 		redirect(action: '../user/indexstudent',params:params)
 	}
 	
+	def creerStudent ={
+		def StudentInstance = new Student(firstName:params.firstName,lastName:params.lastName,email:params.email,password:params.password)
+		if(!StudentInstance.save()){
+			StudentInstance.errors.allErrors.each {e->println e}
+		}
+		[params : params]
+		redirect(action: '../index',params:params)
+		
+	}
+	
+	
 }

@@ -140,11 +140,16 @@ ${flash.message}
 		<label>&nbsp;</label>
 		<input type="submit" value="create Question"/>
 	</div>
-	
-
-	
-
 	</g:form>
+	
+	<g:form action="indexCreerStudent" controller="Student" style="padding-left:200px">
+	
+	<div style="width: 220px">
+		<label>&nbsp;</label>
+		<input type="submit" value="creer Student"/>
+	</div>
+	</g:form>
+	
 	
 	
 	

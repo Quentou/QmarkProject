@@ -39,6 +39,7 @@ class UserController {
 
 		//si un User a le bon userName et password, ça marche
 		for(int i=1;i<=User.count();i++){
+			
 			if(params.username == User.get(i).getProperty("firstName") && params.password == User.get(i).getProperty("password")){
 				flash.message = "login succed"
 				if(User.get(i).getClass().toString()=="class loginproject.Student"){
