@@ -29,7 +29,7 @@ class TeacherController {
 	
 	def ajouterQuestion ={
 		
-		Question questionIstance = new Question(question: params.question)
+		Question questionIstance = new Question(question: params.question,createur: params.nomCreateur)
 		if(!questionIstance.save()){
 			questionIstance.errors.allErrors.each {e->println e}
 		}

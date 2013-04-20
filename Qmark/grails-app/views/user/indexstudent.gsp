@@ -120,7 +120,13 @@ ${userInstance?.group.nom }
 
 <g:each var="q" in="${userInstance?.group.questions}">
 	<p>${q.question}</p>
+	
+	<p> Question posée par ${q.createur} </p>
+	
 	<g:each var="r" in="${userInstance?.reponses}">
+	
+	
+	
 	
 	<g:if test= "${r.question.question == q.question}">
 		<p>${r.reponse} </p>

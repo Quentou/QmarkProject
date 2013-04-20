@@ -5,6 +5,7 @@ class Question {
 	Stugroup group
 	String question
 	String type
+	String createur
 	
 	String toString(){
 		return question
@@ -14,6 +15,7 @@ class Question {
 		group (nullable:true)
 		type (nullable:true)
 		id blank: false, unique:true
+		createur (nullable:true)
 		
     }
 }

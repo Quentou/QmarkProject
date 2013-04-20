@@ -108,7 +108,7 @@ ${userInstance?.stugroups }
 
 </g:form>
 
-<g:form action="ajouterQuestion" controller="Teacher" style="padding-left:200px">
+<g:form params="[ nomCreateur : "${userInstance?.firstName} ${userInstance?.lastName}"]" action="ajouterQuestion" controller="Teacher" style="padding-left:200px">
 	
 	<div style="width: 220px">
 		<label>Nom du groupe:</label>
