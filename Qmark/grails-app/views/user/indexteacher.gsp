@@ -123,6 +123,24 @@ ${userInstance?.stugroups }
 </g:form>
 
 
+<g:each var="q" in="${questionInstanceList}">
+	<p> question de ${q.createur}</p>
+	<p>${q.question}</p>
+	
+	<g:each var="r" in="${reponseInstanceList}">
+	<g:if test= "${r.question.question == q.question}"> 
+	<p> reponse de "${r.student.firstName} ${r.student.lastName}"</p>
+	<p>${r.reponse}</p>
+	
+	</g:if>
+	</g:each>
+	
+	
+	<g:if test= "${q.createur == userInstance?.firstName +" " + userInstance?.lastName}">
+	ça marche!
+	
+	</g:if>
+</g:each>
 
 
 <g:if test="${session.user}">

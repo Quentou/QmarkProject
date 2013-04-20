@@ -9,13 +9,25 @@ class UserController {
 		
 		[userInstance:userInstance]
 		
+		
+		
+		
+		
 	}
 	def indexteacher() {
 		
 		def userInstance = User.get(params.id)
 		
-		[userInstance:userInstance]
 		
+		def questionInstanceList = Question.getAll()
+		
+		
+		
+		def reponseInstanceList = Answer.getAll()
+		
+		
+		
+		[userInstance:userInstance, questionInstanceList:questionInstanceList,reponseInstanceList:reponseInstanceList,params:params]
 		
 		
 	}
@@ -32,13 +44,20 @@ class UserController {
 				if(User.get(i).getClass().toString()=="class loginproject.Student"){
 					session.user = "Student"
 					params.id=User.get(i).getProperty("id")
+					
+					
+					
 					redirect(action:'indexstudent',params: params)
 				}
 				else if(User.get(i).getClass().toString()=="class loginproject.Teacher"){
 					session.user = "Teacher"
 					params.id=User.get(i).getProperty("id")
+					
+					[params : params]
+					
 					redirect(action:'indexteacher',params: params)
 				}
+				
 				else{
 					session.user = "user"
 					redirect(action:'indexuser')
