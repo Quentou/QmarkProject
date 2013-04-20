@@ -13,7 +13,7 @@ class Question {
     static constraints = {
 		group (nullable:true)
 		type (nullable:true)
-		
+		id blank: false, unique:true
 		
     }
 }

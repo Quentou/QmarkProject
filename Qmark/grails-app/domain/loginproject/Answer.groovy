@@ -1,16 +1,18 @@
 package loginproject
 
 class Answer {
-	Student etudiant
-   	String reponse
+	int id
+	String reponse
 	Student student
-	
+	Question question
+
 	String toString() {
 		reponse
 	}
-	
+
 	def voirreponse(){
 	}
-    static constraints = {
-    }
+	static constraints = {
+		id blank: false, unique:true
+	}
 }

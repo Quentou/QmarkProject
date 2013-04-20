@@ -3,7 +3,7 @@ package loginproject
 
 class Student extends User {
 	Stugroup group;
-	
+	static hasMany = [reponses:Answer]
 	
 	
 	def repondrequestion(){
@@ -12,6 +12,8 @@ class Student extends User {
 	
 		
     static constraints = {
+		
+		reponses (nullable:true)
     }
 
 }

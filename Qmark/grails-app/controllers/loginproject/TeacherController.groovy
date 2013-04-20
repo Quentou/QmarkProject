@@ -47,9 +47,6 @@ class TeacherController {
 		render "groupe inexistant"
 		
 		
-		
-		
-		
 	}
 	
 }

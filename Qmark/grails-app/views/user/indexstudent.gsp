@@ -117,21 +117,35 @@ ${userInstance?.password}
 
 ${userInstance?.group.nom }
 
-<g:each in="${userInstance?.group.questions.question}">
-	<p>${userInstance?.group.questions.question[0]}</p>
-    <p>${userInstance?.voiranciennesrep(userInstance)}</p>
+
+<g:each var="q" in="${userInstance?.group.questions}">
+	<p>${q.question}</p>
+	<g:each var="r" in="${userInstance?.reponses}">
+	
+	<g:if test= "${r.question.question == q.question}">
+		<p>${r.reponse} </p>
+	</g:if> 
+	
+	</g:each>
+	
+	<g:form id="${userInstance?.id}" params="[ iduser : "${userInstance?.id}", idquestion : "${q?.id}"]" action="ajouterReponse" controller="Student" style="padding-left:200px">
+	
+		<div style="width: 220px">
+		
+			<label>reponse:</label>
+			<input type="text" name="reponse"/> 
+			<label>&nbsp;</label>
+			<input type="submit" value="ajouter reponse"/>
+		</div>
+	
+	</g:form>
+	
+	
+	
+	
+    
 </g:each>
 
-
-
-<g:form action="create" controller="Answer" style="padding-left:200px">
-	
-	<div style="width: 220px">
-		<label>&nbsp;</label>
-		<input type="submit" value="create Answer"/>
-	</div>
-	
-</g:form>
 	
 </body>
 </html>
