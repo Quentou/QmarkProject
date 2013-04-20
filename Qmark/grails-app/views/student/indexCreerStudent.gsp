@@ -84,15 +84,18 @@ p {
 	<g:form action="creerStudent" controller="student" style="padding-left:200px">
 	
 	<div style="width: 220px">
-		<label></label>
 		<label>prenom:</label>
 		<input type="text" name="firstName"/> 
 		<label>nom:</label>
 		<input type="text" name="lastName"/> 
 		<label>email:</label>
 		<input type="text" name="email"/>
+		<label>group:</label>
+		<input type="text" name="group"/> 
 		 <label>password:</label>
 		<input type="password" name="password"/> 
+		
+		
 		<label>&nbsp;</label>
 		<input type="submit" value="creer"/>
 	</div>

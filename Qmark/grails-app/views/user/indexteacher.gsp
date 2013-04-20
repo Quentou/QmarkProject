@@ -129,7 +129,7 @@ ${userInstance?.stugroups }
 	
 	<g:each var="r" in="${reponseInstanceList}">
 	<g:if test= "${r.question.question == q.question}"> 
-	<p> reponse de "${r.student.firstName} ${r.student.lastName}"</p>
+	<p> reponse de ${r.student.firstName} ${r.student.lastName}</p>
 	<p>${r.reponse}</p>
 	
 	</g:if>
@@ -137,8 +137,6 @@ ${userInstance?.stugroups }
 	
 	
 	<g:if test= "${q.createur == userInstance?.firstName +" " + userInstance?.lastName}">
-	ça marche!
-	
 	</g:if>
 </g:each>
 

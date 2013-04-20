@@ -14,5 +14,9 @@ class Answer {
 	}
 	static constraints = {
 		id blank: false, unique:true
+		reponse (nullable:false)
+		student (nullable:false)
+		question (nullable:false)
+		
 	}
 }
