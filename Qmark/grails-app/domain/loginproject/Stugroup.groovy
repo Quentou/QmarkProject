@@ -10,6 +10,7 @@ class Stugroup {
 	}
 	
     static constraints = {
+		nom nullable:false , unique:true
 		teachers (nullable:true)
 		students (nullable:true)
 		questions (nullable:true)

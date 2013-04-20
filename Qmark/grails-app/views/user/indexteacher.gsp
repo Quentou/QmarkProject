@@ -96,17 +96,21 @@ ${userInstance?.password}
 ${userInstance?.stugroups }
 
 
-<g:form action="ajouterGroup" id="${userInstance?.id}" controller="Teacher" style="padding-left:200px">
+
+
+<g:form action="creerGroup" id="${userInstance?.id}" controller="Teacher" style="padding-left:200px">
 	
 	<div style="width: 220px">
 		<label>Nom du group:</label>
 		<input type="text" name="groupName"/> 
 		<label>&nbsp;</label>
-		<input type="submit" value="AjouterGroup"/>
+		<input type="submit" value="Creer un Groupe"/>
 		
 	</div>
 
 </g:form>
+
+
 
 <g:form params="[ nomCreateur : "${userInstance?.firstName} ${userInstance?.lastName}"]" action="ajouterQuestion" controller="Teacher" style="padding-left:200px">
 	

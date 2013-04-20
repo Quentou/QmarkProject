@@ -27,6 +27,15 @@ class TeacherController {
 		
 	}
 	
+	def creerGroup={
+		def newGroup = new Stugroup(nom:params.groupName)
+		if(!newGroup.save()){
+			newGroup.errors.allErrors.each {e->println e}
+		}
+		[newGroup:newGroup,params:params]
+		redirect(action: '../user/indexteacher')
+	}
+	
 	def ajouterQuestion ={
 		
 		Question questionIstance = new Question(question: params.question,createur: params.nomCreateur)
