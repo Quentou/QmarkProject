@@ -112,5 +112,28 @@ class TeacherController {
 		redirect(action: '../teacher/ajouteQcm',params: params)
 		
 	}
+	def createTeacher={
+		[params:params]
+		
+		
+		
+		
+	}
+	
+	def creerTeacher={
+		
+		def teacherInstance=new Teacher(firstName:params.firstName,lastName:params.lastName,email:params.email,password:params.password)
+		if(!teacherInstance.save()){
+			flash.message = "creation echoue"
+			teacherInstance.errors.allErrors.each {e->println e}
+			
+			redirect(action: '../teacher/createTeacher',params: params)
+		}
+		else{
+		redirect(action:'../')
+		}
+		
+    }
+	
 	
 }

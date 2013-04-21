@@ -220,20 +220,20 @@ ${flash.message}
 
 </div>
 <!--END WRAPPER-->
-<g:form action="create" controller="Student" style="padding-left:200px">
+<g:form action="indexCreerStudent" controller="Student" style="padding-left:200px">
 	
 	<div class="buttonsplus">
 		<label>&nbsp;</label>
-		<input type="submit" value="create Student" class="button"/>
+		<input type="submit" value="creer Student" class="button"/>
 	</div>
 	</g:form>
 	</br>
 	
-	<g:form action="create" controller="Teacher" style="padding-left:200px">
+	<g:form action="createTeacher" controller="Teacher" style="padding-left:200px">
 	
 	<div style="width: 220px">
 		<label>&nbsp;</label>
-		<input type="submit" value="create Teacher" class="button"/>
+		<input type="submit" value="creer Teacher" class="button"/>
 	</div>
 	
 
@@ -241,33 +241,6 @@ ${flash.message}
 
 	</g:form>
 	
-	</br>
-	
-	<g:form action="create" controller="Stugroup" style="padding-left:200px">
-	
-	<div style="width: 220px">
-		<label>&nbsp;</label>
-		<input type="submit" value="create Stugroup" class="button"/>
-	</div>
-	
-
-	
-
-	</g:form>
-	
-		</br>
-	
-	<g:form action="create" controller="Question" style="padding-left:200px">
-	
-	<div style="width: 220px">
-		<label>&nbsp;</label>
-		<input type="submit" value="create Question" class="button"/>
-	</div>
-	
-
-	
-
-	</g:form>
 <!--GRADIENT--><div class="gradient"></div><!--END GRADIENT-->
 	
 	
