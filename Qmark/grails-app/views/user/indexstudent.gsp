@@ -5,134 +5,96 @@
 %>
 <%@ page import= "loginproject.User" %>
 <!DOCTYPE html>
-<html>
+<html lang="fr"><!--<![endif]-->
 <head>
-<meta name="layout" content="main" />
-<title>Login</title>
-<style type="text/css" media="screen">
-#status {
-	background-color: #eee;
-	border: .2em solid #fff;
-	margin: 2em 2em 1em;
-	padding: 1em;
-	width: 12em;
-	float: left;
-	-moz-box-shadow: 0px 0px 1.25em #ccc;
-	-webkit-box-shadow: 0px 0px 1.25em #ccc;
-	box-shadow: 0px 0px 1.25em #ccc;
-	-moz-border-radius: 0.6em;
-	-webkit-border-radius: 0.6em;
-	border-radius: 0.6em;
-}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-.ie6 #status {
-	display: inline;
-	/* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-}
+	<title>testI</title>
+	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'uistyle.css')}" />
+	<!--[if lt IE 7]><link rel="stylesheet" href="css/font-awesome-ie7.min.css"><![endif]-->
 
-#status ul {
-	font-size: 0.9em;
-	list-style-type: none;
-	margin-bottom: 0.6em;
-	padding: 0;
-}
 
-#status li {
-	line-height: 1.3;
-}
-
-#status h1 {
-	text-transform: uppercase;
-	font-size: 1.1em;
-	margin: 0 0 0.3em;
-}
-
-#page-body {
-	margin: 2em 1em 1.25em 18em;
-}
-
-h2 {
-	margin-top: 1em;
-	margin-bottom: 0.3em;
-	font-size: 1em;
-}
-
-p {
-	line-height: 1.5;
-	margin: 0.25em 0;
-}
-
-#controller-list ul {
-	list-style-position: inside;
-}
-
-#controller-list li {
-	line-height: 1.3;
-	list-style-position: inside;
-	margin: 0.25em 0;
-}
-
-@media screen and (max-width: 480px) {
-	#status {
-		display: none;
-	}
-	#page-body {
-		margin: 0 1em 1em;
-	}
-	#page-body h1 {
-		margin-top: 0;
-	}
-}
-</style>
 </head>
-<body>
-<div class="message">
-${flash.message}
+<body class="jquery-ui page page-id-19 page-template-default page-slug-demos single-author singular">
+
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
+
+<header>
+
+	<section id="global-nav">
+		<nav>
+
+            <div class="userdef">Hello, ${userInstance?.firstName}  <g:link action="logout"><img src="${resource(dir: 'images', file: 'logout.png')}"/></g:link></div>
+		</nav>
+	</section>
+</header>
+<div class="loogo"><img src="${resource(dir: 'images', file: 'logo.jpg')}"/>
 </div>
-
-<g:if test="${session.user}">
-<br/>
-login as: ${session.user} | <g:link action="logout">Logout</g:link>
-</g:if>
+<div id="container">
 
 
 
-
-<g:else>
-
-
-</g:else>
-<br/>
+	<div id="content-wrapper" class="clearfix row">
 
 
-<br/>
+<div class="content-right twelve columns">
+	<div id="content">
+				<h1 class="entry-title">Questions en cours sur le groupe ${userInstance?.group.nom }</h1>
+		<hr>
 
-${userInstance?.firstName}
 
-${userInstance?.lastName}
-
-${userInstance?.email}
-
-${userInstance?.password}
-
-${userInstance?.group.nom }
-
+<%--  <g:each var="q" in="${userInstance?.group.questions}">
+	<div class="question">${q.question}</div>
+	
+	<p> Question posée par ${q.createur} </p>
+	
+	<g:each var="r" in="${userInstance?.reponses}">
+	
+	
+	
+	
+	<g:if test= "${r.question.question == q.question}">
+		<p>Vous avez répondu : ${r.reponse} </p>
+	</g:if> 
+	
+	</g:each>
+	
+	<g:form id="${userInstance?.id}" params="[ iduser : "${userInstance?.id}", idquestion : "${q?.id}"]" action="ajouterReponse" controller="Student" style="padding-left:200px">
+	
+		<div class="reponse">
+		
+			<label>Reponse : </label>
+			<input type="text" name="reponse"/> 
+			<input type="submit" value="Répondre"/>
+		</div>
+	
+	</g:form>
+	
+	
+	
+	
+    
+</g:each>--%>
 
 <g:each var="q" in="${userInstance?.group.questions}">
-	<p>${q.question}</p>
+	<div class="question">${q.question}</div>
 	<p> Question posée par ${q.createur} </p>
 	
 	<g:set var="proposeQuestion" value="true"/>
 	<g:each var="r" in="${userInstance?.reponses}">
 	
 	<g:if test= "${r.question.question == q.question}">
-		<p>${r.reponse} </p>
+		<p>Vous avez répondu : "${r.reponse}"
 		<g:if test= "${r.question.reponse == r.reponse }">
 		
-			<p>VRAI!</p>
+			et la réponse est valide <img src="${resource(dir: 'images', file: 'valid.png')}"/></p>
 		</g:if>
 		<g:else>
-			<p>FAUX!</p>
+			et la réponse est invalide <img src="${resource(dir: 'images', file: 'wrong.png')}"/></p>
 		</g:else>
 		
 		
@@ -143,23 +105,35 @@ ${userInstance?.group.nom }
 	<g:if test= "${proposeQuestion == "true"}">
 	<g:form action="ajouterReponse" id="${userInstance?.id}" params="[ iduser : "${userInstance?.id}", idquestion : "${q?.id}"]" controller="Student" style="padding-left:200px">
 	
-		<div style="width: 220px">
+		<div class="reponse2">
 		
-			<label>reponse:</label>
-			<input type="text" name="reponse"/> 
-			<label>&nbsp;</label>
-			<input type="submit" value="ajouter reponse"/>
+			<label>Reponse : </label>
+			<input type="text" name="reponse" style="width:600px;"/> 
+			<input type="submit" value="Répondre"/>
 		</div>
 	
 	</g:form>
 	</g:if>
-	
-	
-	
-	
-    
-</g:each>
+		</g:each>
+</div>
 
-	
-</body>
-</html>
+</div>
+
+	</div>
+</div>
+</div>
+<footer class="clearfix simple">
+	<div class="constrain">
+		<div class="row">
+            <div class="student">
+
+<img src="${resource(dir: 'images', file: 'student.jpg')}"/>
+
+		</div>
+	</div>
+</footer>
+
+
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden; float: left;"></div><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><div id="cboxNext" style="float: left;"></div><div id="cboxPrevious" style="float: left;"></div><div id="cboxSlideshow" style="float: left;"></div><div id="cboxClose" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div></body></html>
