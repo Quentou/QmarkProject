@@ -40,13 +40,13 @@ class TeacherController {
 	
 	def ajouterQuestion ={
 		
-		
+		def userInstance= User.get(params.id)
 		for(int i=1;i<=Stugroup.count();i++){
 			println Stugroup.get(i)
 			if(Stugroup.get(i).hasProperty("nom")){
 			
 				if(params.groupName == Stugroup.get(i).getProperty("nom")){
-				Question questionInstance = new Question(question: params.question,createur: params.nomCreateur,group:Stugroup.get(i),type:params.typeq)
+				Question questionInstance = new Question(question: params.question,createur: params.nomCreateur,group:Stugroup.get(i),type:params.typeq,reponse:params.vraiereponse)
 				if(!questionInstance.save()){
 					questionInstance.errors.allErrors.each {e->println e}
 				}
@@ -72,7 +72,7 @@ class TeacherController {
 					if(!Stugroup.get(i).save()){
 						Stugroup.get(i).errors.allErrors.each {e->println e}
 					}
-					[params : params,questionInstance:questionInstance]
+					[params : params,questionInstance:questionInstance,userInstance:userInstance]
 					redirect(action: '../user/indexteacher',params: params)
 				}
 				

@@ -120,21 +120,28 @@ ${userInstance?.group.nom }
 
 <g:each var="q" in="${userInstance?.group.questions}">
 	<p>${q.question}</p>
-	
 	<p> Question posée par ${q.createur} </p>
 	
+	<g:set var="proposeQuestion" value="true"/>
 	<g:each var="r" in="${userInstance?.reponses}">
-	
-	
-	
 	
 	<g:if test= "${r.question.question == q.question}">
 		<p>${r.reponse} </p>
+		<g:if test= "${r.question.reponse == r.reponse }">
+		
+			<p>VRAI!</p>
+		</g:if>
+		<g:else>
+			<p>FAUX!</p>
+		</g:else>
+		
+		
+		<g:set var="proposeQuestion" value="false"/>
 	</g:if> 
 	
 	</g:each>
-	
-	<g:form id="${userInstance?.id}" params="[ iduser : "${userInstance?.id}", idquestion : "${q?.id}"]" action="ajouterReponse" controller="Student" style="padding-left:200px">
+	<g:if test= "${proposeQuestion == "true"}">
+	<g:form action="ajouterReponse" id="${userInstance?.id}" params="[ iduser : "${userInstance?.id}", idquestion : "${q?.id}"]" controller="Student" style="padding-left:200px">
 	
 		<div style="width: 220px">
 		
@@ -145,6 +152,7 @@ ${userInstance?.group.nom }
 		</div>
 	
 	</g:form>
+	</g:if>
 	
 	
 	

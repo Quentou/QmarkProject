@@ -6,6 +6,7 @@ class Question {
 	String question
 	String type
 	String createur
+	String reponse
 	def reponsesQCM
 	
 	String toString(){
