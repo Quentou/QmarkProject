@@ -91,7 +91,9 @@ p {
 		<label>email:</label>
 		<input type="text" name="email"/>
 		<label>group:</label>
-		<input type="text" name="group"/> 
+		
+		<g:select name="group" from="${Stugroup}" optionKey="group" optionValue="group"/>
+		
 		 <label>password:</label>
 		<input type="password" name="password"/> 
 		
