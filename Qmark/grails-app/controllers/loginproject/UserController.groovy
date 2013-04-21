@@ -18,10 +18,7 @@ class UserController {
 		
 		def userInstance = User.get(params.id)
 		
-		
-		def questionInstanceList = Question.getAll()
-		
-		
+		def questionInstanceList = Question.list(sort:"dateQuestionPose",order:"desc")
 		
 		def reponseInstanceList = Answer.getAll()
 		

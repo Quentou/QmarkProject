@@ -46,7 +46,7 @@ class TeacherController {
 			if(Stugroup.get(i).hasProperty("nom")){
 			
 				if(params.groupName == Stugroup.get(i).getProperty("nom")){
-				Question questionInstance = new Question(question: params.question,createur: params.nomCreateur,group:Stugroup.get(i),type:params.typeq,reponse:params.vraiereponse)
+				Question questionInstance = new Question(question: params.question,createur: params.nomCreateur,group:Stugroup.get(i),type:params.typeq,reponse:params.vraiereponse,dateQuestionPose:new Date())
 				if(!questionInstance.save()){
 					questionInstance.errors.allErrors.each {e->println e}
 				}

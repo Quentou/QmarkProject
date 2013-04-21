@@ -4,4 +4,6 @@ class QuestionController {
 
     def scaffold = Question
 	
+	
+	
 }

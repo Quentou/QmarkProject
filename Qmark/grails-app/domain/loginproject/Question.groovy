@@ -8,6 +8,7 @@ class Question {
 	String createur
 	String reponse
 	def reponsesQCM
+	Date dateQuestionPose
 	
 	String toString(){
 		return question

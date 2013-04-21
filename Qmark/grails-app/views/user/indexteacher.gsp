@@ -131,9 +131,9 @@ ${userInstance?.stugroups }
 
 </g:form>
 
-
 <g:each var="q" in="${questionInstanceList}">
 	<p> question de ${q.createur}</p>
+	<p> postée à ${q.dateQuestionPose}</p>
 	<p>${q.question}</p>
 	
 	<g:each var="r" in="${reponseInstanceList}">
