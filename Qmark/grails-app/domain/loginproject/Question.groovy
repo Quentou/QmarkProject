@@ -6,23 +6,25 @@ class Question {
 	String question
 	String type
 	String createur
-	def reponsesQCM = []
+	def reponsesQCM
 	
 	String toString(){
 		return question
 	}
 	
-	def addReponsesQcm(String rep){
-		reponsesQCM.add(rep)
-		
+	def addReponse(String s){
+		reponsesQCM.add(s)
 	}
+	
 	
     static constraints = {
 		reponsesQCM (nullable:true)
 		group (nullable:false)
-		type (nullable:true)
+		type nullable:true,inlist:["QCM","Libre"]
 		id blank: false, unique:true
 		createur (nullable:false)
+	
+		
 		
     }
 }

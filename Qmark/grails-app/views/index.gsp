@@ -190,7 +190,7 @@ ${flash.message}
     <!--END SLIDE-IN ICONS-->
 
 <!--LOGIN FORM-->
-<g:form name ="login-form" class="login-form" controller="User" action="login">
+<g:form name ="login-form" class="login-form" controller="user" action="login">
 
 
 

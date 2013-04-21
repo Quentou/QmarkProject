@@ -28,33 +28,88 @@ class TeacherController {
 	}
 	
 	def creerGroup={
+		def userInstance= User.get(params.id)
+		
 		def newGroup = new Stugroup(nom:params.groupName)
 		if(!newGroup.save()){
 			newGroup.errors.allErrors.each {e->println e}
 		}
-		[newGroup:newGroup,params:params]
-		redirect(action: '../user/indexteacher')
+		[newGroup:newGroup,userInstance:userInstance,params:params]
+		redirect(action: '../user/indexteacher',params:params)
 	}
 	
 	def ajouterQuestion ={
 		
-		Question questionIstance = new Question(question: params.question,createur: params.nomCreateur)
-		if(!questionIstance.save()){
-			questionIstance.errors.allErrors.each {e->println e}
-		}
+		
 		for(int i=1;i<=Stugroup.count();i++){
-			if(params.groupName == Stugroup.get(i).getProperty("nom")){
+			println Stugroup.get(i)
+			if(Stugroup.get(i).hasProperty("nom")){
+			
+				if(params.groupName == Stugroup.get(i).getProperty("nom")){
+				Question questionInstance = new Question(question: params.question,createur: params.nomCreateur,group:Stugroup.get(i),type:params.typeq)
+				if(!questionInstance.save()){
+					questionInstance.errors.allErrors.each {e->println e}
+				}
 				
-				Stugroup.get(i).addToQuestions(questionIstance)
+				/*
+				 * Stugroup.get(i).addToQuestions(questionInstance)
 				if(!Stugroup.get(i).save()){
 					Stugroup.get(i).errors.allErrors.each {e->println e}
+				}*/
+				
+				
+				
+				if(params.typeq == "QCM"){
+					println "on passe dans QCM"
+					println "questionInstance:"
+					println questionInstance
+					[params : params,questionInstance : questionInstance]
+					redirect(action: '../teacher/ajouteQcm')
 				}
-				[params : params]
-				redirect(action: '../user/indexteacher',params:params)
+				else{
+					println "aha"
+					Stugroup.get(i).addToQuestions(questionInstance)
+					if(!Stugroup.get(i).save()){
+						Stugroup.get(i).errors.allErrors.each {e->println e}
+					}
+					[params : params,questionInstance:questionInstance]
+					redirect(action: '../user/indexteacher',params: params)
+				}
+				
+				}
 			}
 		}
+		
 		render "groupe inexistant"
 		
+		
+	}
+	
+	def ajouteQcm ={
+		
+		def questionInstance=params.questionInstance
+		[questionInstance:questionInstance]
+		println "questionInstance dans ajouteQCM"
+		println questionInstance
+		[questionInstance:questionInstance,params:params]
+		
+		
+	}
+	
+	def ajouteQuestionQcm={
+		
+		def questionInstance = params.questionInstance
+		println questionInstance
+		if(params.reponse){
+			println "on passe dans reponse"
+			questionInstance.addReponse(params.reponse)
+		}
+		if(!questionInstance.save()){
+			questionInstance.errors.allErrors.each {e->println e}
+		}
+		
+		[params:params,questionInstance:questionInstance]
+		redirect(action: '../teacher/ajouteQcm',params: params)
 		
 	}
 	

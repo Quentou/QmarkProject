@@ -112,13 +112,16 @@ ${userInstance?.stugroups }
 
 
 
-<g:form params="[ nomCreateur : "${userInstance?.firstName} ${userInstance?.lastName}"]" action="ajouterQuestion" controller="Teacher" style="padding-left:200px">
+<g:form params="[ nomCreateur : "${userInstance?.firstName} ${userInstance?.lastName}", userInstance: "${userInstance}"]" action="ajouterQuestion" controller="Teacher" style="padding-left:200px">
 	
 	<div style="width: 220px">
 		<label>Nom du groupe:</label>
 		<input type="text" name="groupName"/> 
 		<label>Question:</label>
 		<input type="text" name="question"/> 
+		<label>Type:(QCM ou Libre)</label>
+		<input type="text" name="typeq"/> 
+		
 		<label>&nbsp;</label>
 		<input type="submit" value="Ajouter la Question à un groupe"/>
 		
