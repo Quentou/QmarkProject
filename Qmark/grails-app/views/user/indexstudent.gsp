@@ -118,8 +118,7 @@ ${userInstance?.password}
 ${userInstance?.group.nom }
 
 
-
-<g:each var="q" in="${userInstance?.group.questions.sort("dateQuestionPose",[order:'desc'])}">
+<g:each var="q" in="${userInstance?.group.questions}">
 	<p>${q.question}</p>
 	<p> Question posée par ${q.createur} </p>
 	
